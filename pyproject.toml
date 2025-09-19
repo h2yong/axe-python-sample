@@ -6,6 +6,11 @@ requires-python = ">=3.11"
 dependencies = [
     "celery>=5.5.3",
     "eventlet>=0.40.3",
+    "funboost>=50.3",
     "gevent>=25.9.1",
     "redis>=6.4.0",
 ]
+
+[[tool.uv.index]]
+url="https://mirrors.aliyun.com/pypi/simple/"
+default=true
