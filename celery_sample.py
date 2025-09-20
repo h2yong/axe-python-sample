@@ -1,6 +1,9 @@
-﻿import random
+﻿"""这是一个 celery 任务函数的最简单示例."""
+
+import random
 
 from celery_task import add
+
 
 if __name__ == "__main__":
     result: int = add.delay(random.randint(1, 100), random.randint(1, 100))

@@ -1,18 +1,27 @@
 # [celery](https://github.com/celery/celery)分布式任务队列 sample
 
-[toc]
+- [celery分布式任务队列 sample](#celery分布式任务队列-sample)
+  - [windows 执行 celery 命令](#windows-执行-celery-命令)
+    - [使用 solo 作为`perfork pool`](#使用-solo-作为perfork-pool)
+    - [使用 Threads 作为`perfork pool`](#使用-threads-作为perfork-pool)
+    - [使用gevent作为`perfork pool`](#使用gevent作为perfork-pool)
+    - [使用eventlet作为`perfork pool`](#使用eventlet作为perfork-pool)
+  - [调度分布式函数](#调度分布式函数)
+  - [参考文档](#参考文档)
 
 ## windows 执行 celery 命令
 
 > 注意：在 Windows 下，需要指定以下`perfork pool`如`-P gevent`后 celery 才能触发执行，否则 celery 收到任务但不执行，也就是说不会有任务执行结果。
 
-### 使用solo作为`perfork pool`
-> 单进程执行, 即在 worker 所在的进程和线程上处理任务，严格来说，他不算一个pool.
+### 使用 solo 作为`perfork pool`
+
+> 单进程执行, 即在 worker 所在的进程和线程上处理任务，严格来说，他不算一个 pool.
 
 1.执行命令: `celery -A celery_task worker -P solo --loglevel=info`
 
-### 使用Threads作为`perfork pool`
-> Threads pool 线程池类型中的线程由操作系统内核直接管理，只要 Python 的 ThreadPoolExector 支持 Windows 线程，这种池类型就可以在 Windows 上工作，推荐使用在IO负载的场景.
+### 使用 Threads 作为`perfork pool`
+
+> Threads pool 线程池类型中的线程由操作系统内核直接管理，只要 Python 的 ThreadPoolExector 支持 Windows 线程，这种池类型就可以在 Windows 上工作，推荐使用在 IO 负载的场景.
 
 1.执行命令: `celery -A celery_task worker -P threads --loglevel=info --concurrency=4`
 
@@ -32,7 +41,7 @@
 
 ## 调度分布式函数
 
-`python main.py`
+`python celery_sample.py`
 
 运行后, 通过 redis 客户端即可查看此次任务存放的 result 结果。
 
