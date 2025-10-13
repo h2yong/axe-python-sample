@@ -1,0 +1,51 @@
+= 城市时区查询服务接口文档
+:toc:
+:toc-title: 目录
+:toclevels: 4
+:sectnums:
+
+== API接口列表
+|===
+|api名称 |请求方式|HTTP访问地址                          |备注
+|时区查询|get     |http://{service_name}:8010/api/v1/name|根据城市名查询time_zone_location和time_zone
+|===
+
+## swagger地址
+link:http://{service_name}:8010/apidocs[http://{service_name}:8010/apidocs]
+
+== 时区查询接口
+=== 请求参数
+|===
+|参数     |类型  |是否必选|描述
+|city_name|string|是      |城市名(英文)
+|===
+=== 请求示例
+[source,json]
+----
+{"city_name": "Africa/Johannesburg"}
+----
+
+=== 返回参数
+|===
+|参数              |类型  |是否必选|描述
+|input_name        |int   |是      |输入的城市名
+|es_city_name      |string|是      |es存储的城市名
+|date              |string|是      |查询日期
+|time              |string|是      |查询时间
+|time_zone         |string|是      |城市对应的time_zone
+|day_of_week       |int   |是      |当前日期的day_of_week, 如周二的day_of_week=2
+|time_zone_location|string|是      |城市对应的time_zone_location
+|===
+=== 返回示例
+[source,json]
+----
+{
+    "date": "2025-10-13",
+    "day_of_week": "1",
+    "es_city_name": "Mberengwa District",
+    "input_name": "Mberengwa District",
+    "time": "12:41:32",
+    "time_zone": "Etc/GMT-2",
+    "time_zone_location": "Africa/Johannesburg"
+}
+----
