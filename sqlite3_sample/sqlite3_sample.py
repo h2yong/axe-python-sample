@@ -1,4 +1,7 @@
+"""sqlite3 sample."""
+
 import sqlite3
+
 
 if __name__ == "__main__":
     # 创建内存数据库
