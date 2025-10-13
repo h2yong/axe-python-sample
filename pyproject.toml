@@ -10,14 +10,15 @@ dependencies = [
     "gevent>=25.9.1",
     "redis>=6.4.0",
     "textblob>=0.19.0",
+    "dash>=3.2.0",
+    "gradio>=5.47.1",
+    "reflex>=0.8.12",
+    "streamlit>=1.49.1",
+    "streamlit-chat>=0.1.1",
 ]
 
 [dependency-groups]
-dev = [
-    "celery-types==0.23.0",
-    "pytest>=8.4.2",
-    "pytest-cov>=7.0.0",
-]
+dev = ["celery-types==0.23.0", "pytest>=8.4.2", "pytest-cov>=7.0.0"]
 
 [[tool.uv.index]]
 url = "https://mirrors.cloud.tencent.com/pypi/simple/"
@@ -38,7 +39,11 @@ markers = "meta"
 
 [tool.black]
 line-length = 160 # 设置每行的最大字符数（默认 88）
-target-version = ["py39", "py310", "py311"] # 指定 Python 目标版本（如 py38, py39, py310 等）
+target-version = [
+    "py39",
+    "py310",
+    "py311",
+] # 指定 Python 目标版本（如 py38, py39, py310 等）
 skip-string-normalization = false # 禁用字符串标准化（不强制双引号）
 include = '\.pyi?$' # 格式化的文件类型（正则表达式）
 exclude = '''
