@@ -1,10 +1,15 @@
+"""Gradio sample."""
+
 import gradio as gr
-from PIL import Image
 import numpy as np
 
 
-# 模拟一个图像分类模型
 def classify_image(image):
+    """模拟一个图像分类模型.
+
+    :param image: 图片
+    :return 图片类型: 正方形图片/长方形图片
+    """
     if image is None:
         return "请上传图片"
     # 这里我们只是简单判断图片是“正方形”还是“长方形”
@@ -12,8 +17,7 @@ def classify_image(image):
     h, w, _ = img_array.shape
     if abs(h - w) < 20:  # 假设相差20像素以内算正方形
         return "正方形图片"
-    else:
-        return "长方形图片"
+    return "长方形图片"
 
 
 # 创建Gradio界面

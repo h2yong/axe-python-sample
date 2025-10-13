@@ -5,6 +5,7 @@ import plotly.express as px
 
 from dash import Dash, dcc, html
 
+
 app = Dash()
 
 df = pd.read_csv(
