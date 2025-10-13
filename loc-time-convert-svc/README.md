@@ -3,6 +3,24 @@
 根据城市名查询time_zone_location和time_zone。
 
 ## 目录说明
+```bash
+├── app
+│   ├── config.py                      # 配置文件读取代码
+│   ├── constant.py                    # 常量定义类
+│   ├── search_data                    # 查询elasticsearch城市数据
+│   └── server                         # route和服务核心代码
+├── datasets
+│   ├── creat_index_bulk_data.py       # 将城市(英文)数据导入到elasticsearch的脚本
+│   └── update_all_the_cities.json     # 城市(英文)数据
+├── docker-compose
+│   └── docker-compose-local.yml       # 本地测试依赖数据库
+├── docs                               # 文档目录
+│   └── 城市时区查询服务接口文档.adoc  # 接口文档
+├── pyproject.toml                     # uv包依赖/代码扫描/代码格式规范配置文件
+├── README.md
+├── run_app.py                         # 程序启动入口
+└── tests                              # 集成和单元测试代码
+```
 
 ## 环境变量说明
 
